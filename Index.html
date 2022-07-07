@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/app.js"></script>
+    <title>Productos</title>
+</head>
+<body>
+    <div class="container">    
+        <h1 class="mt-5">Productos</h1>
+        <hr>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-success btn" data-bs-toggle="modal" data-bs-target="#productModal">
+            <i class="bi bi-cart-plus"></i> Agregar Producto 
+        </button>
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5>Listado de Productos</h5>
+            </div>
+            <div class="card-body">
+                <table id="table-products"   class="table table-hover">
+                    <tbody id="tbody-table-products"></tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel"> <i class="bi bi-cart-plus" ></i>Agregar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearForm()"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="from-product">
+                        <div class="mb-3">
+                            <input type="text" id="inputKey" value="" hidden>
+                            <input type="text" id="inputId" value="" hidden>
+                            <input type="text" id="inputQuantity" value="" hidden>
+                            <label for="name" class="form-label">Nombre de prodcuto</label>
+                            <input type="text" class="form-control" id="inputName" placeholder="Nombre de producto. Ej: Zapatillas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="form-label">Descripción</label>
+                            <textarea rows="3" class="form-control" id="inputDescription" placeholder="Describe el producto."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cost" class="form-label">Costo</label>
+                            <input type="number" class="form-control" id="inputCost" placeholder="Cuanto cuesta el producto.">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearForm()">Cancelar</button>
+                    <button type="button" class="btn btn-success" onclick="addAndEditProduct()">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Delete -->
+    <div class="modal  modal-sm fade " id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title " id="deleteModalLabel"> <i class="bi bi-exclamation-octagon"></i> Eliminando datos...</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="clearForm()"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" id="from-delete">
+                        <div class="mb-3">
+                            <!-- <input type="text" id="input-Key" value="" hidden> -->
+                            <input type="text" id="inputId" value="" hidden>
+                            <p>Se eliminaran los datos del producto seleccionado.</p>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="clearForm()">Cancelar</button>
+                    <button type="button" class="btn btn-danger"  data-bs-dismiss="modal" onclick="destroyProduct()">Continuar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+</html>
