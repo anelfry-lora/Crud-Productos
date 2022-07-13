@@ -81,7 +81,7 @@ function loadData() {
             total += 0;
             quantityTotal += 0;
             
-        } else {
+        }else {
             total += totalProducto;
             quantityTotal += products[i]['quantity'];
         }                
@@ -239,9 +239,9 @@ function decrease(key){
    var totalTotal = parseInt(document.getElementById('td-total-total').innerHTML);
 
    cellQuantity ? document.getElementById('td-quantity'+key).innerHTML = cellQuantity - 1 : 0;
-   document.getElementById('td-quantity-total').innerHTML = quantityTotal - 1;
    document.getElementById('td-total'+key).innerHTML = document.getElementById('td-quantity'+key).innerHTML * cellCost;
    cellQuantity ? document.getElementById('td-total-total').innerHTML = totalTotal - parseInt(document.getElementById('td-cost'+key).innerHTML) : 0;
+   cellQuantity != 0 ? document.getElementById('td-quantity-total').innerHTML = quantityTotal - 1 : 0; 
 
-   cellQuantity ? products[key]['quantity'] = cellQuantity - 1 : 0;
+   cellQuantity != 0 ? products[key]['quantity'] = cellQuantity - 1 : 0;
 }
